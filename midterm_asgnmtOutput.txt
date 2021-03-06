@@ -1,0 +1,30 @@
+/* 
+* File: Problem2b.java 
+* -------------------- 
+* This program doesn't do anything useful and exists only to test 
+* your understanding of method calls and parameter passing. 
+*/ 
+
+import acm.program.*; 
+public class Problem2b extends ConsoleProgram { 
+	public void run() {
+		int num1 = 2; 
+		int num2 = 13; 
+		println("The 1st number is: " + Mystery(num1, 6));     					//(2,6) 78
+		println("The 2nd number is: " + Mystery(num2 % 5, 1 + num1 * 2));		//(3,5) 73
+	} 
+	private int Mystery(int num1, int num2) {								    //(2,6)           (3,5)
+		num1 = Unknown(num1, num2); 											//22               21
+		num2 = Unknown(num2, num1); 											//(6,22)  78      (5,21) 73
+		return(num2); 															//78
+	} 
+	private int Unknown(int num1, int num2) {									//(2,6)	(6,22)  (3,5)	(5,21)
+		 int num3 = num1 + num2;  												//  8	   28	  8       26
+		 num2 += num3 * 2; 														//6+16	 22+56  5+16    21+52
+		 return(num2); 															// 22	   78    21       73
+	} 
+} 
+
+	Answer:
+	The 1st number is: 78
+	The 2nd number is: 73
